@@ -1,0 +1,1 @@
+Basically, It is a platform where we can help artists to help them monetize their work. Initially main target is to create a fully fucntional site and then in first stage we can appraoch students from art schools who would like to have a passive income.
