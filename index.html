@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artify</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <style>
+    .hidden {
+      display: none;
+    }
+    body {
+      background-color: #f9fafb;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- Header -->
+  <header class="text-gray-600 body-font bg-white shadow-sm">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <img src="https://pictures.artify.tn/app/artify_logo_xs.png" alt="Artify Logo" class="w-10 h-10 rounded-full" >
+        <span class="ml-3 text-xl">Artify</span>
+      </a>
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900">Home</a>
+        <a href="trending.html" class="mr-5 hover:text-gray-900">Trending</a>
+        <a href="artworks.html" class="mr-5 hover:text-gray-900">Artworks</a>
+        <a href="creator.html" class="mr-5 hover:text-gray-900">Creator Tab</a>
+        <a href="Attraction.html" class="mr-5 hover:text-gray-900">Attractions</a>
+        <a href="login.html" class="mr-5 hover:text-gray-900">Join Us</a>
+      </nav>
+      <!-- Search Bar -->
+      <div class="relative mt-4 md:mt-0">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-white text-sm">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search artworks..." 
+               class="bg-gray-800 text-white pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-indigo-600 to-purple-700 text-white py-20 px-6">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg" data-aos="fade-down">
+        Where Creativity Lives,<br class="hidden md:inline"/> and Art Comes Alive.
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="150">
+        Dive into a world of breathtaking digital and traditional artwork by creators from around the globe.
+      </p>
+
+      <!-- Category Tags -->
+      <div class="flex flex-wrap justify-center gap-6 mt-10 text-white text-sm md:text-base font-medium" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-white/30 transition">
+          <span>🎨</span>
+          <span>Traditional Art</span>
+        </div>
+        <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-white/30 transition">
+          <span>🖥️</span>
+          <span>Digital Illustrations</span>
+        </div>
+        <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-white/30 transition">
+          <span>🌌</span>
+          <span>Abstract</span>
+        </div>
+        <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-white/30 transition">
+          <span>🧊</span>
+          <span>3D Concepts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artwork Grid -->
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0" data-aos="fade-right">
+          <h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Featured Artworks</h2>
+          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+        </div>
+        <p class="lg:w-1/2 w-full leading-relaxed text-gray-700" data-aos="fade-left">
+          Explore handpicked artworks that represent the finest of Artify — from tribal traditions to futuristic designs.
+        </p>
+      </div>
+
+      <div id="artworkGrid" class="flex flex-wrap -m-4">
+        <!-- Artwork Cards -->
+        <div class="xl:w-1/4 md:w-1/2 p-4 artwork-card" data-aos="zoom-in">
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://img.freepik.com/free-photo/black-swan-cygnus-atratus-illustrated-by-elizabeth-gould_53876-65218.jpg" alt="Black Swan">
+            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">Artify</h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Black Swan</h2>
+            <p class="leading-relaxed text-base">Cygnus atratus illustrated by Elizabeth Gould.</p>
+          </div>
+        </div>
+
+        <div class="xl:w-1/4 md:w-1/2 p-4 artwork-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://img.freepik.com/premium-vector/warli-art-tranquil-rural-life-scene-indian-tribal-art-village-lifestyle-traditional-wall-decor_770404-218.jpg" alt="Tribal Art">
+            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">Artify</h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Tribal Art</h2>
+            <p class="leading-relaxed text-base">Warli Art depicting traditional village life in India.</p>
+          </div>
+        </div>
+
+        <div class="xl:w-1/4 md:w-1/2 p-4 artwork-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://img.freepik.com/free-photo/view-ancient-egyptian-civilization-culture_23-2151735517.jpg" alt="Giza">
+            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">Artify</h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Great Pyramid of Giza</h2>
+            <p class="leading-relaxed text-base">An artistic glance at ancient Egyptian culture and history.</p>
+          </div>
+        </div>
+
+        <div class="xl:w-1/4 md:w-1/2 p-4 artwork-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://img.freepik.com/free-vector/san-francisco-bridge-concept-illustration_114360-9882.jpg" alt="San Francisco">
+            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">Artify</h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">San Francisco</h2>
+            <p class="leading-relaxed text-base">A concept illustration of the Golden Gate Bridge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Functionality -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".artwork-card");
+
+    searchInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.querySelector("h2").innerText.toLowerCase();
+        const desc = card.querySelector("p").innerText.toLowerCase();
+        if (title.includes(query) || desc.includes(query)) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  </script>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>
+
+

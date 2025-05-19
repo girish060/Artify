@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment - Artify</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+ <!-- Header -->
+ <header class="bg-white shadow">
+    <div class="container mx-auto flex flex-wrap p-4 items-center justify-between">
+      <a href="index.html" class="text-lg font-semibold text-gray-700 hover:text-gray-900 transition">Home</a>
+      <a class="flex items-center space-x-3">
+        <img src="https://pictures.artify.tn/app/artify_logo_xs.png" alt="Artify Logo" class="w-10 h-10 rounded-full">
+        <span class="text-2xl font-bold text-gray-900">Artify</span>
+      </a>
+    </div>
+  </header>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+    const price = params.get('price');
+    const image = params.get('image');
+  
+    document.getElementById('art-title').textContent = decodeURIComponent(title);
+    document.getElementById('art-price').textContent = "₹" + decodeURIComponent(price);
+    document.getElementById('art-image').src = decodeURIComponent(image);
+  </script>
+  
+<body class="bg-gray-100">
+  <div class="max-w-3xl mx-auto p-8 bg-white shadow-lg mt-10 rounded-xl">
+    <h1 class="text-3xl font-bold mb-6 text-center text-indigo-600">Payment Page</h1>
+
+    <div class="flex flex-col md:flex-row items-center md:space-x-8">
+      <img id="art-image" class="w-64 h-64 object-cover rounded shadow mb-6 md:mb-0" src="https://wallpapers.com/images/featured/berlin-money-heist-kvj75f712dxdsdy1.jpg" alt="Art Image">
+      <div>
+        <h2 id="art-title" class="text-2xl font-semibold mb-2">Artwork Title</h2>
+        <p id="art-price" class="text-xl text-green-600 mb-4">₹8000.00</p>
+        <label class="block mb-2 font-medium">Your Name:</label>
+        <input type="text" class="border p-2 w-full rounded mb-4" placeholder="Enter your name" />
+
+        <label class="block mb-2 font-medium">Payment Method:</label>
+        <select class="border p-2 w-full rounded mb-4">
+          <option>Credit Card</option>
+          <option>UPI</option>
+          <option>PayPal</option>
+        </select>
+
+        <button class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition">
+          Pay Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+    const price = params.get('price');
+    const image = params.get('image');
+
+    document.getElementById('art-title').textContent = title;
+    document.getElementById('art-price').textContent = "₹" + price;
+    document.getElementById('art-image').src = image;
+  </script>
+</body>
+
+</html>

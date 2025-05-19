@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Artify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+
+  <!-- Header -->
+  <header class="text-gray-600 body-font shadow-md">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+        <a href="index.html" class="mr-5 hover:text-gray-900">Home</a>
+      </nav>
+      <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+        <img src="https://pictures.artify.tn/app/artify_logo_xs.png" alt="Artify Logo" class="w-10 h-10 rounded-full" >
+        <span class="ml-3 text-xl">Artify</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Signup/Login Section -->
+  <div class="flex min-h-screen">
+    <!-- Left Panel -->
+    <div class="w-1/2 bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex flex-col justify-center items-center p-10">
+      <h1 class="text-4xl font-bold mb-4">Artify</h1>
+      <p class="text-lg text-center max-w-md mb-6">
+        Discover and share your creativity. Join a community of artists and visionaries.
+      </p>
+      <img src="https://img.freepik.com/free-photo/sight-sense-plants-collage_23-2149848106.jpg?ga=GA1.1.1537067850.1744021227&semt=ais_country_boost&w=740" alt="Artwork" class="rounded-xl shadow-lg w-3/4" />
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="w-1/2 flex flex-col justify-center items-center p-12">
+      <div class="w-full max-w-md">
+        <h2 id="form-title" class="text-3xl font-bold text-gray-800 mb-6 text-center">Create Your Account</h2>
+        <form id="auth-form" class="space-y-4">
+          <div id="name-field">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <input id="name" type="text" placeholder="Jane Doe" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input id="email" type="email" placeholder="jane@example.com" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input id="password" type="password" placeholder="••••••••" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400" />
+          </div>
+          <button type="submit" class="w-full bg-indigo-500 text-white py-2 rounded-lg font-semibold hover:bg-indigo-600 transition">
+            <span id="submit-text">Sign Up</span>
+          </button>
+        </form>
+        <p class="text-center text-sm text-gray-600 mt-4">
+          <span id="toggle-text">Already have an account?</span>
+          <a href="#" id="toggle-link" class="text-indigo-500 font-medium hover:underline">Log in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple Auth Script -->
+  <script>
+    const isSignup = { value: true };
+
+    const nameField = document.getElementById('name-field');
+    const formTitle = document.getElementById('form-title');
+    const submitText = document.getElementById('submit-text');
+    const toggleLink = document.getElementById('toggle-link');
+    const toggleText = document.getElementById('toggle-text');
+
+    toggleLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      isSignup.value = !isSignup.value;
+      if (isSignup.value) {
+        formTitle.textContent = 'Create Your Account';
+        submitText.textContent = 'Sign Up';
+        toggleText.textContent = 'Already have an account?';
+        toggleLink.textContent = 'Log in';
+        nameField.style.display = 'block';
+      } else {
+        formTitle.textContent = 'Log In to Your Account';
+        submitText.textContent = 'Log In';
+        toggleText.textContent = "Don't have an account?";
+        toggleLink.textContent = 'Sign up';
+        nameField.style.display = 'none';
+      }
+    });
+
+    document.getElementById('auth-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name')?.value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (isSignup.value) {
+        // Sign Up
+        if (!name || !email || !password) {
+          alert("Please fill in all fields.");
+          return;
+        }
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        if (users[email]) {
+          alert("Email already registered.");
+          return;
+        }
+        users[email] = { name, password };
+        localStorage.setItem('users', JSON.stringify(users));
+        alert("Account created! You can now log in.");
+        toggleLink.click(); // switch to login
+      } else {
+        // Log In
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        if (!users[email] || users[email].password !== password) {
+          alert("Invalid credentials.");
+          return;
+        }
+        alert("Logged in successfully! Welcome, " + users[email].name);
+        // Here, you might redirect to a dashboard page.
+      }
+    });
+  </script>
+
+</body>
+</html>
+
